@@ -1,0 +1,44 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .login-card {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .login-image {
+    flex: 1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .login-form {
+    flex: 1;
+    padding: 2rem;
+    h2 {
+      color: #333;
+    }
+    .form-control {
+      margin-bottom: 1rem;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }

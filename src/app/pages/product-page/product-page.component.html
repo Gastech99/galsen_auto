@@ -1,0 +1,43 @@
+<main class="container-fluid mt-5 mb-5">
+  <div class="row pageBox">
+    <div class="col-lg-4">
+      <!-- Filter -->
+
+      <p>Filtre</p>
+      <p>Catégorie: {{ getParamValue | titlecase }}</p>
+      <p>Sous catégorie</p>
+      <div class="col-lg-4">
+        <select class="form-select form-select-sm" (change)="filterSelect($event)">
+          <option value="all">Tous</option>
+        <option
+            *ngFor="let data of getSubcategoryOption"
+            value="{{ data.subCategories }}"
+          >
+            {{ data.subCategories }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <!-- product content -->
+
+      <div class="row pageContent mt-5" *ngFor="let data of filterProductData">
+        <div class="col-lg-4">
+          <img src="{{ data.img }}" alt="filter Data" />
+        </div>
+        <div class="col-lg-8">
+          <h6>{{ data.name }}</h6>
+          <p>{{ data.desc }}</p>
+          <p>
+            <span class="fw-medium"><i class="bi bi-currency-dollar"></i></span
+            >{{ data.price | number }}
+          </p>
+          <a class="btn btn-sm btn-dark" [routerLink]="['/product-details', data.cat, data.id]"
+            >View Product<i class="bi bi-arrow-right-circle"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

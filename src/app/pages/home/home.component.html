@@ -1,0 +1,90 @@
+<main class="container-fluid p-0">
+  <!-- Banner start -->
+  <div
+    id="carouselExampleAutoplaying"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active" *ngFor="let data of bannerImg">
+        <img
+          [src]="data.img"
+          class="d-block w-100"
+          alt="banner"
+          style="height: 250px"
+        />
+      </div>
+    </div>
+
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</main>
+<!-- Banner end -->
+
+<!-- Category box start -->
+
+<div class="container mt-5 mb-5">
+  <div class="row categoryBox">
+    <div
+      class="col-lg-3 col-6 categoryContent"
+      *ngFor="let data of getCategorie"
+    >
+      <a [routerLink]="['/product-page', data.code]">
+        <img src="{{ data.img }}" alt="Category" />
+        <h4>{{ data.name }}</h4>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- Category box end -->
+
+<!-- Show product start -->
+
+<!-- Appliance product -->
+<div class="container mt-3 mb-3">
+  <p>
+    <a
+      class="float-start link-offset-3"
+      [routerLink]="['product-page', 'appliance']"
+      >Meilleur produit</a
+    >
+    <a class="float-end" [routerLink]="['product-page', 'appliance']"
+      ><i class="bi bi-arrow-right-circle"></i
+    ></a>
+  </p>
+  <div class="row productBox">
+    <div class="col-lg-3" *ngFor="let data of getApplianceProduct; index as i">
+      <a
+        href=""
+        [routerLink]="['/product-details', data.cat, data.id]"
+        class="productLink"
+      >
+        <div class="productContent" *ngIf="i <= 3">
+          <div class="produtImg">
+            <img [src]="data.img" alt="prod" />
+          </div>
+          <h6>{{ data.name }}</h6>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Show Product end -->

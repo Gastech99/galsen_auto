@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <h2 class="text-center">Réserver une voiture</h2>
+    <form (submit)="validateDates()">
+      <div class="mb-3">
+        <label for="startDate" class="form-label">Date de début</label>
+        <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" class="form-control" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="endDate" class="form-label">Date de fin</label>
+        <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" class="form-control" required />
+      </div>
+  
+      <button type="submit" class="btn btn-primary w-100">Réserver</button>
+    </form>
+  
+    <!-- Affichage des messages -->
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+    <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+  </div>
+  

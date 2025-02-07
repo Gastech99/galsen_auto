@@ -1,0 +1,49 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-image">
+      <img
+        src="../../assets/img/kia-other-models-sportage-phev-gtl-767x384.png"
+        alt="Car Image" style="width: 90%; height: 50%;"
+      />
+    </div>
+    <div class="login-form">
+      <h2 class="text-center mb-4">Connexion</h2>
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            [(ngModel)]="credentials.email"
+            required
+            placeholder="Entrez votre email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            [(ngModel)]="credentials.password"
+            required
+            placeholder="Entrez votre mot de passe"
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary w-100"
+          [disabled]="loginForm.invalid"
+        >
+          Se connecter
+        </button>
+      </form>
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>
